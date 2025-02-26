@@ -3,8 +3,8 @@ files:
   - name: src/Task.kt
     visible: true
     placeholders:
-      - offset: 378
-        length: 1
+      - offset: 379
+        length: 0
         placeholder_text: fun partitionTo() = TODO()
         initial_state:
           length: 26
