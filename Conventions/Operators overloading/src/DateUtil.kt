@@ -19,5 +19,9 @@ fun MyDate.addTimeIntervals(timeInterval: TimeInterval, amount: Int): MyDate {
     }
     val result = Calendar.getInstance()
     result.timeInMillis = timeInMillis
-    return MyDate(result.get(Calendar.YEAR), result.get(Calendar.MONTH), result.get(Calendar.DATE))
+    return MyDate(
+        result.get(Calendar.YEAR),
+        result.get(Calendar.MONTH),
+        result.get(Calendar.DATE)
+    )
 }

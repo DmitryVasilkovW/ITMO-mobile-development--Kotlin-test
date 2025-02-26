@@ -1,8 +1,8 @@
 open class Tag(val name: String) {
     protected val children = mutableListOf<Tag>()
 
-    override fun toString() =
-            "<$name>${children.joinToString("")}</$name>"
+    override fun toString(): String =
+        "<$name>${children.joinToString("")}</$name>"
 }
 
 fun table(init: TABLE.() -> Unit): TABLE {
@@ -13,29 +13,32 @@ fun table(init: TABLE.() -> Unit): TABLE {
 
 class TABLE : Tag("table") {
     fun tr(init: TR.() -> Unit) {
-        /* TODO */
+        val tr = TR()
+        tr.init()
+        children.add(tr)
     }
 }
 
 class TR : Tag("tr") {
     fun td(init: TD.() -> Unit) {
-        /* TODO */
+        val td = TD()
+        td.init()
+        children.add(td)
     }
 }
 
 class TD : Tag("td")
 
 fun createTable() =
-        table {
-            tr {
-                repeat(2) {
-                    td {
-                    }
+    table {
+        tr {
+            repeat(2) {
+                td {
                 }
             }
         }
+    }
 
 fun main() {
     println(createTable())
-    //<table><tr><td></td><td></td></tr></table>
 }
